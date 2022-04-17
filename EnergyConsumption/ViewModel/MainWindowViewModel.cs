@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
+using System.Windows;
 
 namespace EnergyConsumption.ViewModel
 {
@@ -34,7 +34,7 @@ namespace EnergyConsumption.ViewModel
             get => _gas;
             set
             {
-                if(_gas != value)
+                if(_gas != value && value > 0)
                 {
                     _gas = value; 
                     OnPropertyChanged(nameof(Gas));
@@ -46,7 +46,7 @@ namespace EnergyConsumption.ViewModel
             get => _water;
             set
             {
-                if(_water != value)
+                if(_water != value && value > 0)
                 {
                     _water = value;
                     OnPropertyChanged(nameof(Water));
@@ -58,7 +58,7 @@ namespace EnergyConsumption.ViewModel
             get => _electricity;
             set
             {
-                if(_electricity != value)
+                if(_electricity != value && value > 0)
                 {
                     _electricity = value;
                     OnPropertyChanged(nameof(Electricity));
@@ -68,9 +68,9 @@ namespace EnergyConsumption.ViewModel
         #endregion
 
         #region Events
-        public event EventHandler firstEvent;
-        public event EventHandler secondEvent;
-        public event EventHandler thridEvent;
+        //public event EventHandler firstEvent;
+        //public event EventHandler secondEvent;
+        //public event EventHandler thridEvent;
         #endregion
 
         #region DelegateCommands
@@ -78,6 +78,7 @@ namespace EnergyConsumption.ViewModel
         public DelegateCommand RemoveCommand { get; private set; }
         public DelegateCommand SaveAsCSVCommand { get; private set; }
         public DelegateCommand StoreInDatabaseCommand { get; private set; }
+        public DelegateCommand ResetCommand { get; private set; }
         public DelegateCommand ExitCommand { get; private set; }
         #endregion
 
@@ -95,6 +96,7 @@ namespace EnergyConsumption.ViewModel
             RemoveCommand = new DelegateCommand(RemoveInformation, CanRemoveInformation);
             StoreInDatabaseCommand = new DelegateCommand(StoreInDatabase, CanStoreInDatabase);
             SaveAsCSVCommand = new DelegateCommand(SaveAsCSV, CanSaveAsCSV);
+            ResetCommand = new DelegateCommand(Reset, CanReset);
             ExitCommand = new DelegateCommand(Exit, CanExit);
         }
         #endregion
@@ -102,9 +104,9 @@ namespace EnergyConsumption.ViewModel
         #region Private Methods
         private void AddInformation()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("hi");
+            //throw new NotImplementedException();
         }        
-        
         private void RemoveInformation()
         {
             throw new NotImplementedException();
@@ -119,7 +121,10 @@ namespace EnergyConsumption.ViewModel
         {
             throw new NotImplementedException();
         }
-
+        private void Reset()
+        {
+            throw new NotImplementedException();
+        }
         private void Exit()
         {
             throw new NotImplementedException();
@@ -132,6 +137,7 @@ namespace EnergyConsumption.ViewModel
             AddCommand.OnExecuteChanged();
             RemoveCommand.OnExecuteChanged();
             SaveAsCSVCommand.OnExecuteChanged();
+            ResetCommand.OnExecuteChanged();
             ExitCommand.OnExecuteChanged();
         } 
         #endregion
@@ -141,6 +147,7 @@ namespace EnergyConsumption.ViewModel
         private bool CanRemoveInformation() => true;
         private bool CanStoreInDatabase() => true;
         private bool CanSaveAsCSV() => true;
+        private bool CanReset() => true;
         private bool CanExit() => true;
         #endregion
     }

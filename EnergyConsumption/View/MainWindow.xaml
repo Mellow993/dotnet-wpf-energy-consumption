@@ -3,24 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EnergyConsumption"
+        xmlns:viewmodel="clr-namespace:EnergyConsumption.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Energy Consumption" Height="450" Width="400">
     <Grid>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="385,34,0,0" VerticalAlignment="Top"/>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="395,84,0,0" VerticalAlignment="Top"/>
-        <Button Content="Save as CSV" HorizontalAlignment="Left" Margin="500,44,0,0" VerticalAlignment="Top"/>
-        <Button Content="Reset" HorizontalAlignment="Left" Margin="505,94,0,0" VerticalAlignment="Top"/>
-        <Label Content="Gas" HorizontalAlignment="Left" Margin="40,39,0,0" VerticalAlignment="Top"/>
-        <Label Content="Water" HorizontalAlignment="Left" Margin="50,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="Electricity" HorizontalAlignment="Left" Margin="55,124,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="105,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="125,99,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="145,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Store in database" HorizontalAlignment="Left" Margin="410,129,0,0" VerticalAlignment="Top"/>
-        <Label Content="kWh" HorizontalAlignment="Left" Margin="70,184,0,0" VerticalAlignment="Top"/>
-        <Label Content="m3" HorizontalAlignment="Left" Margin="115,234,0,0" VerticalAlignment="Top"/>
-
-
+        <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="200,29,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Remove" Command="{Binding RemoveCommand}" HorizontalAlignment="Left" Margin="200,59,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Save as CSV" Command="{Binding SaveAsCSVCommand}" HorizontalAlignment="Left" Margin="202,149,0,0" VerticalAlignment="Top" Width="133"/>
+        <Button Content="Reset" Command="{Binding ResetCommand}" HorizontalAlignment="Left" Margin="200,89,0,0" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Gas" HorizontalAlignment="Left" Margin="15,23,0,0" VerticalAlignment="Top"/>
+        <Label Content="Water" HorizontalAlignment="Left" Margin="14,53,0,0" VerticalAlignment="Top"/>
+        <Label Content="Electricity" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Gas, Mode=OneWay}" HorizontalAlignment="Left" Margin="74,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
+        <TextBox Text="{Binding Water, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <TextBox Text="{Binding Electricity, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <DatePicker Text="{Binding Today, Mode=OneWay}" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top"/>
+        <Button Content="Store in database" Command="{Binding StoreInDatabaseCommand}" HorizontalAlignment="Left" Margin="199,119,0,0" VerticalAlignment="Top" Width="131"/>
+        <Label Content="kWh" HorizontalAlignment="Left" Margin="136,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="m3" HorizontalAlignment="Left" Margin="143,24,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,229,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
