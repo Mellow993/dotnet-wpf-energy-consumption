@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnergyConsumption.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,7 +12,23 @@ namespace EnergyConsumption
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
-    { 
+    public partial class App : Application, IDisposable
+    {
+        private MainWindowViewModel startViewModel;
+
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (startViewModel != null)
+                    startViewModel.Dispose();
+            }
+        }
     }
 }

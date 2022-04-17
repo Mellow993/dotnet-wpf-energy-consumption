@@ -21,12 +21,12 @@
         <TextBox Text="{Binding Gas, Mode=OneWay}" HorizontalAlignment="Left" Margin="74,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
         <TextBox Text="{Binding Water, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
         <TextBox Text="{Binding Electricity, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-        <DatePicker Text="{Binding Today, Mode=OneWay}" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top"/>
+        <DatePicker Text="{Binding Today, Mode=OneWay}" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
         <Button Content="Store in database" Command="{Binding StoreInDatabaseCommand}" ToolTip="Store entries in database" HorizontalAlignment="Left" Margin="199,119,0,0" VerticalAlignment="Top" Width="131"/>
         <Label Content="kWh" HorizontalAlignment="Left" Margin="136,79,0,0" VerticalAlignment="Top"/>
         <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
         <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
         <Label Content="m3" HorizontalAlignment="Left" Margin="143,24,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="50,229,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,229,0,0" TextWrapping="Wrap" Text="{Binding Result, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
