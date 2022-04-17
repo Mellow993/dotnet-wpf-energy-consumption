@@ -3,14 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodel="clr-namespace:EnergyConsumption.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
+        xmlns:viewmodel="clr-namespace:EnergyConsumption.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="Energy Consumption" Height="450" Width="400">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="200,29,0,0" VerticalAlignment="Top" Width="136"/>
-        <Button Content="Remove" Command="{Binding RemoveCommand}" HorizontalAlignment="Left" Margin="200,59,0,0" VerticalAlignment="Top" Width="136"/>
-        <Button Content="Save as CSV" Command="{Binding SaveAsCSVCommand}" HorizontalAlignment="Left" Margin="202,149,0,0" VerticalAlignment="Top" Width="133"/>
-        <Button Content="Reset" Command="{Binding ResetCommand}" HorizontalAlignment="Left" Margin="200,89,0,0" VerticalAlignment="Top" Width="133"/>
+        <Button Content="Add" Command="{Binding AddCommand}" ToolTip="Add a new entry" HorizontalAlignment="Left" Margin="200,29,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Remove" Command="{Binding RemoveCommand}" ToolTip="Remove entry" HorizontalAlignment="Left" Margin="200,59,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button Content="Save as CSV" Command="{Binding SaveAsCSVCommand}" ToolTip="Save entries as CSV" HorizontalAlignment="Left" Margin="202,149,0,0" VerticalAlignment="Top" Width="133"/>
+        <Button Content="Reset" Command="{Binding ResetCommand}" ToolTip="Reset entry" HorizontalAlignment="Left" Margin="200,89,0,0" VerticalAlignment="Top" Width="133"/>
         <Label Content="Gas" HorizontalAlignment="Left" Margin="15,23,0,0" VerticalAlignment="Top"/>
         <Label Content="Water" HorizontalAlignment="Left" Margin="14,53,0,0" VerticalAlignment="Top"/>
         <Label Content="Electricity" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
@@ -18,7 +22,7 @@
         <TextBox Text="{Binding Water, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
         <TextBox Text="{Binding Electricity, Mode=OneWay}" HorizontalAlignment="Left" Margin="75,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
         <DatePicker Text="{Binding Today, Mode=OneWay}" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top"/>
-        <Button Content="Store in database" Command="{Binding StoreInDatabaseCommand}" HorizontalAlignment="Left" Margin="199,119,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button Content="Store in database" Command="{Binding StoreInDatabaseCommand}" ToolTip="Store entries in database" HorizontalAlignment="Left" Margin="199,119,0,0" VerticalAlignment="Top" Width="131"/>
         <Label Content="kWh" HorizontalAlignment="Left" Margin="136,79,0,0" VerticalAlignment="Top"/>
         <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
         <Label Content="m3" HorizontalAlignment="Left" Margin="138,58,0,0" VerticalAlignment="Top"/>
